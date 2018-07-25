@@ -1,4 +1,4 @@
-var currentCache = 'rest-reviews-cache-1';
+var currentCache = 'restaurant-cache-1';
 
 let urlCache = [
     '/',
