@@ -1,14 +1,14 @@
 let restaurants,
   neighborhoods,
-  cuisines
-var newMap
-var markers = []
+  cuisines;
+var newMap;
+var markers = [];
 
 /**
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
  */
-document.addEventListener('DOMContentLoaded', (event) => {
-  initMap(); // added 
+document.addEventListener('DOMContentLoaded', () => {
+  initMap(); 
   fetchNeighborhoods();
   fetchCuisines();
 });
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
  */
 fetchNeighborhoods = () => {
   DBHelper.fetchNeighborhoods((error, neighborhoods) => {
-    if (error) { // Got an error
+    if (error) { // Got an error!
       console.error(error);
     } else {
       self.neighborhoods = neighborhoods;
@@ -81,6 +81,7 @@ window.initMap = () => {
     center: loc,
     scrollwheel: false
   });
+
   updateRestaurants();
 }
 
@@ -161,9 +162,9 @@ createRestaurantHTML = (restaurant) => {
   const more = document.createElement('a');
   more.innerHTML = 'View Details';
   more.href = DBHelper.urlForRestaurant(restaurant);
-  li.append(more)
+  li.append(more);
 
-  return li
+  return li;
 }
 
 /**
