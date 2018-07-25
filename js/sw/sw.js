@@ -2,7 +2,7 @@ var lastCache = 'restaurant-cache-1';
 
 let urlCache = [
     '/',
-    '/.resturant.html',
+    '/.restaurant.html',
     './data/restaurants.json', 
     './img/1.jpg',
     './img/2.jpg',
@@ -15,8 +15,7 @@ let urlCache = [
     './img/9.jpg',
     './img/10.jpg',
     './js/main.js',
-    './js/dbhelper.js',
-    './js/restaurant.html:id1'
+    './js/dbhelper.js'
 ];
 
 self.addEventListener('install', (e) => {
