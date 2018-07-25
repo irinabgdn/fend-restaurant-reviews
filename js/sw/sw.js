@@ -1,4 +1,4 @@
-var lastCache = 'restaurant-cache-1';
+var currentCache = 'rest-reviews-cache-1';
 
 let urlCache = [
     '/',
@@ -20,7 +20,7 @@ let urlCache = [
 
 self.addEventListener('install', (e) => {
     e.waitUntil(
-        caches.open(lastCache)
+        caches.open(currentCache)
         .then((cache) => {
             console.log(cache);
             return cache.addAll(urlCache)
@@ -36,7 +36,7 @@ self.addEventListener('activate', (e) => {
         .then((cacheNames) => {
             return Promise.all(
                 cacheNames.filter(name =>{
-                    return name.startsWith('restaurant-') && name != lastCache;
+                    return name.startsWith('restaurant-') && name != currentCache;
                 }) 
             )
         }).catch(error => {
