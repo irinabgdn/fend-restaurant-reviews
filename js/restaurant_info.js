@@ -1,12 +1,6 @@
 let restaurant;
 var map;
 
-/**
- * Initialize map as soon as the page is loaded.
- */
-document.addEventListener('DOMContentLoaded', (event) => {  
-  initMap();
-});
 
 /**
  * Initialize leaflet map
@@ -19,7 +13,7 @@ window.initMap = () => {
       self.map = new google.maps.Map(document.getElementById('map'), {
         zoom: 16,
         center: restaurant.latlng,
-        scrollwheel: false
+        scrollwheel: false;
       });
       fillBreadcrumb();
       DBHelper.mapMarkerForRestaurant(self.restaurant, self.map);
