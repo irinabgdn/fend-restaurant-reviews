@@ -32,12 +32,15 @@ self.addEventListener('install', (e) => {
 
 self.addEventListener('activate', (e) => {
     e.waitUntil(
-        caches.keys().then((cacheNames) => {
+        caches.keys()
+        .then((cacheNames) => {
             return Promise.all(
                 cacheNames.filter(name =>{
                     return name.startsWith('restaurant-') && name != lastCache;
                 }) 
             )
+        }).catch(error => {
+            console.log(error);
         })
     )
 })
@@ -47,6 +50,8 @@ self.addEventListener('fetch', (e) => {
         caches.match(e.request)
         .then((response) => {
             return response || fetch(e.request);
+        }).catch(error => {
+            console.log(error);
         })
     )
 })
