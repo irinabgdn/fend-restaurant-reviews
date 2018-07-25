@@ -286,10 +286,12 @@ nav h1 a {
 #restaurant-img {
 	width: 100%;
 }
+
 #restaurant-address {
   font-size: 12pt;
   margin: 10px 0px;
 }
+
 #restaurant-cuisine {
   background-color: #333;
   color: #ddd;
@@ -359,6 +361,13 @@ nav h1 a {
 }
 
 /* Tablet display */
+@media only screen and (min-width: 631px) and (max-width: 850px) and (orientation: landscape) {
+  #restaurants-list li {
+    max-width: 270px;
+  }
+}
+
+/* Tablet display */
 @media only screen and (min-width: 768px) {
   nav h1 a {
     line-height: 4;
@@ -375,9 +384,9 @@ nav h1 a {
 }
 
 @media only screen and (min-width: 1200px) and (orientation: landscape) {
-  #restaurants-list li {
+  /* #restaurants-list li {
     max-width: 300px;
-  }
+  } */
 
   .inside #map-container {
     width: 40%;
