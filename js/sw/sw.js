@@ -2,7 +2,7 @@ var currentCache = 'restaurant-cache-1';
 
 let urlCache = [
     '/',
-    '/.restaurant.html',
+    './restaurant.html',
     './data/restaurants.json', 
     './img/1.jpg',
     './img/2.jpg',
@@ -14,7 +14,9 @@ let urlCache = [
     './img/8.jpg',
     './img/9.jpg',
     './img/10.jpg',
+    './css/styles.css',
     './js/main.js',
+    './js/restaurant_info.js',
     './js/dbhelper.js'
 ];
 
