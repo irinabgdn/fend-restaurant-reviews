@@ -1,7 +1,7 @@
 var currentCache = 'rr-cache-1';
 
-let urlCache = [
-    '/',
+const urlCache = [
+    '/skeleton',
     './restaurant.html',
     './data/restaurants.json', 
     './img/1.jpg',
@@ -17,15 +17,16 @@ let urlCache = [
     './css/styles.css',
     './js/main.js',
     './js/restaurant_info.js',
-    './js/dbhelper.js'
+    './js/dbhelper.js',
+    '//normalize-css.googlecode.com/svn/trunk/normalize.css'
 ];
 
 self.addEventListener('install', (e) => {
     e.waitUntil(
         caches.open(currentCache)
         .then((cache) => {
-            console.log(cache);
-            return cache.addAll(urlCache)
+            console.log('Opened cache:' + cache);
+            return cache.addAll(urlCache);
         }).catch(error => {
             console.log(error);
         })
@@ -47,7 +48,9 @@ self.addEventListener('activate', (e) => {
     )
 })
 
+// Return request
 self.addEventListener('fetch', (e) => {
+    console.log('Fetched')
     e.respondWith(
         caches.match(e.request)
         .then((response) => {

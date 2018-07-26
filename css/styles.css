@@ -41,6 +41,10 @@ a img {
 	border: none 0px #fff;
 }
 
+label {
+  display: none;
+}
+
 h1,
 h2,
 h3,
