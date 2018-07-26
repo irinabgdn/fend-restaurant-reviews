@@ -8,7 +8,7 @@ class DBHelper {
    * Change this to restaurants.json file location on your server.
    */
   static get DATABASE_URL() {
-    return `https://irinabgdn.github.io/fend-restaurant-reviews//data/restaurants.json`;
+    return `http://localhost:8000/data/restaurants.json`;
   }
 
   /**

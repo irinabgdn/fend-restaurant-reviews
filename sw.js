@@ -17,8 +17,7 @@ const urlCache = [
     './css/styles.css',
     './js/main.js',
     './js/restaurant_info.js',
-    './js/dbhelper.js',
-    '//normalize-css.googlecode.com/svn/trunk/normalize.css'
+    './js/dbhelper.js'
 ];
 
 self.addEventListener('install', (e) => {
@@ -53,13 +52,7 @@ self.addEventListener('fetch', (e) => {
     e.respondWith(
         caches.match(e.request)
         .then((response) => {
-            // If request exists in cache, return cached response
-            if (response) {
-                return response;
-            } else {
-            // Else fetch new request
-            return fetch(e.request);
-            }
+            return response || fetch(e.request);
         }).catch(error => {
             console.log('Data not fetched:', error);
         })
