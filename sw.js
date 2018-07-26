@@ -1,4 +1,4 @@
-var currentCache = 'rr-cache-1';
+var currentCache = 'static-rr-1';
 
 const urlCache = [
     './skeleton',
@@ -26,21 +26,6 @@ self.addEventListener('install', (e) => {
         .then((cache) => {
             console.log('Opened cache:' + cache);
             return cache.addAll(urlCache);
-        }).catch(error => {
-            console.log(error);
-        })
-    )
-})
-
-self.addEventListener('activate', (e) => {
-    e.waitUntil(
-        caches.keys()
-        .then((cacheNames) => {
-            return Promise.all(
-                cacheNames.filter(name =>{
-                    return name.startsWith('rr-') && name != currentCache;
-                }) 
-            )
         }).catch(error => {
             console.log(error);
         })
