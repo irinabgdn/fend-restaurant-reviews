@@ -2,8 +2,8 @@ var currentCache = 'rr-cache-1';
 
 const urlCache = [
     './skeleton',
-    './restaurant.html',
-    './data/restaurants.json', 
+    '/restaurant.html',
+    '/data/restaurants.json', 
     './img/1.jpg',
     './img/2.jpg',
     './img/3.jpg',
