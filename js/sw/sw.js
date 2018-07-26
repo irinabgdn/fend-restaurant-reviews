@@ -1,7 +1,7 @@
 var currentCache = 'rr-cache-1';
 
 const urlCache = [
-    '/skeleton',
+    './skeleton',
     './restaurant.html',
     './data/restaurants.json', 
     './img/1.jpg',
@@ -50,13 +50,18 @@ self.addEventListener('activate', (e) => {
 
 // Return request
 self.addEventListener('fetch', (e) => {
-    console.log('Fetched')
     e.respondWith(
         caches.match(e.request)
         .then((response) => {
-            return response || fetch(e.request);
+            // If request exists in cache, return cached response
+            if (response) {
+                return response;
+            } else {
+            // Else fetch new request
+            return fetch(e.request);
+            }
         }).catch(error => {
-            console.log(error);
+            console.log('Data not fetched:', error);
         })
     )
 })
